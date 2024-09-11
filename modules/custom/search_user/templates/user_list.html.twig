@@ -1,0 +1,92 @@
+<div id="user-list-container">
+  <!-- Formulario de búsqueda -->
+  <form id="user-search-form">
+    <input type="text" id="edit-name" name="name" placeholder="Nombre" />
+    <input type="text" id="edit-surname" name="surname" placeholder="Apellido" />
+    <input type="text" id="edit-email" name="email" placeholder="Correo electrónico" />
+    <button type="submit">Buscar</button>
+  </form>
+
+  <!-- Lista de usuarios -->
+  <div id="user-list">
+    <!-- Aquí se llenarán los usuarios por AJAX -->
+  </div>
+
+  <!-- Paginación -->
+  <div class="pagination">
+    <button id="prev-page">Anterior</button>
+    <span id="current-page">Página 1</span>
+    <button id="next-page">Siguiente</button>
+  </div>
+</div>
+
+<style>
+  #user-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  #user-list th, #user-list td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  #user-list th {
+    background-color: #0074d9; /* Azul de Drupal */
+    color: white;
+  }
+
+  #user-list tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+  #user-list tr:hover {
+    background-color: #ddd;
+  }
+
+  #user-list-container {
+    font-family: Arial, sans-serif;
+  }
+
+  #user-search-form {
+    margin-bottom: 20px;
+  }
+
+  #user-search-form input, #user-search-form button {
+    margin-right: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  #user-search-form button {
+    background-color: #0074d9; /* Azul de Drupal */
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  #user-search-form button:hover {
+    background-color: #005bb5; /* Azul más oscuro de Drupal */
+  }
+
+  .pagination {
+    margin-top: 20px;
+  }
+
+  .pagination button {
+    margin: 0 5px;
+    padding: 8px 16px;
+    border: 1px solid #0074d9; /* Azul de Drupal */
+    background-color: white;
+    color: #0074d9; /* Azul de Drupal */
+    cursor: pointer;
+  }
+
+  .pagination button:hover {
+    background-color: #0074d9; /* Azul de Drupal */
+    color: white;
+  }
+</style>

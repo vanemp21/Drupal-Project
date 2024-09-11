@@ -1,0 +1,6 @@
+search_user:
+  js:
+    js/user_list.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

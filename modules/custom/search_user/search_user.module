@@ -1,0 +1,13 @@
+<?php
+/**
+ * Implements hook_theme().
+ */
+function search_user_theme() {
+  return [
+    'user_list' => [
+      'variables' => [],
+      'template' => 'user_list',  
+    ],
+  ];
+}
+?>

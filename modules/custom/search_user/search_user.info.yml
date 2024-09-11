@@ -1,0 +1,9 @@
+name: 'Search User'
+type: module
+description: 'Módulo para listar usuarios con paginación y AJAX.'
+package: 'Custom'
+core_version_requirement: ^10
+dependencies:
+  - drupal:system
+  - drupal:user
+  - drupal:text

@@ -1,0 +1,15 @@
+search_user.page:
+  path: '/user-list'
+  defaults:
+    _controller: '\Drupal\search_user\Controller\UserListController::page'
+    _title: 'User List'
+  requirements:
+    _permission: 'access content'
+
+search_user.ajax:
+  path: '/user-list/ajax'
+  defaults:
+    _controller: '\Drupal\search_user\Controller\UserListController::ajax'
+    _title: 'User List AJAX'
+  requirements:
+    _permission: 'access content'
