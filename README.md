@@ -61,9 +61,14 @@ Este proyecto de Drupal está diseñado para demostrar la capacidad de filtrado 
 
     La página de búsqueda de usuarios estará disponible en: 
     ```bash
-    http://localhost/tu-repositorio/user-list
+    http://localhost/Drupal-Project/user-list
     ```
     Aquí podrás utilizar el formulario para buscar usuarios y ver los resultados en una tabla. La búsqueda se realiza utilizando AJAX, por lo que los resultados se actualizarán dinámicamente sin recargar la página.
+    
+    Para mostrar los usuarios en forma de objeto como requiere la prueba se puede ver mediante el siguiente enlace:
+    ```bash
+    http://localhost/Drupal-Project/user-list/ajax
+    ```
 
 3. **Inicia sesión en el sistema**
 
