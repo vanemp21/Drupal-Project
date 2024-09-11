@@ -1,75 +1,77 @@
-<img alt="Drupal Logo" src="https://www.drupal.org/files/Wordmark_blue_RGB.png" height="60px">
+# Drupal User List Project
 
-Drupal is an open source content management platform supporting a variety of
-websites ranging from personal weblogs to large community-driven websites. For
-more information, visit the Drupal website, [Drupal.org][Drupal.org], and join
-the [Drupal community][Drupal community].
+Este proyecto de Drupal está diseñado para demostrar la capacidad de filtrado y paginación de una lista de usuarios utilizando AJAX. Está destinado para una prueba técnica y muestra cómo se pueden manejar los filtros de búsqueda y la paginación en una aplicación Drupal personalizada.
 
-## Contributing
+## Requisitos
 
-Drupal is developed on [Drupal.org][Drupal.org], the home of the international
-Drupal community since 2001!
+- PHP 8.0 o superior
+- MySQL 5.7 o superior
+- Composer
+- Drush 13.1
+- XAMPP (opcional, para un entorno local)
 
-[Drupal.org][Drupal.org] hosts Drupal's [GitLab repository][GitLab repository],
-its [issue queue][issue queue], and its [documentation][documentation]. Before
-you start working on code, be sure to search the [issue queue][issue queue] and
-create an issue if your aren't able to find an existing issue.
+## Instalación
 
-Every issue on Drupal.org automatically creates a new community-accessible fork
-that you can contribute to. Learn more about the code contribution process on
-the [Issue forks & merge requests page][issue forks].
+1. **Clona el repositorio**
 
-## Usage
+   ```bash
+   git clone https://github.com/vanemp21/Drupal-Project.git
+   ```
 
-For a brief introduction, see [USAGE.txt](/core/USAGE.txt). You can also find
-guides, API references, and more by visiting Drupal's [documentation
-page][documentation].
+2. **Accede a la carpeta del proyecto**
 
-You can quickly extend Drupal's core feature set by installing any of its
-[thousands of free and open source modules][modules]. With Drupal and its
-module ecosystem, you can often build most or all of what your project needs
-before writing a single line of code.
+    ```bash
+    cd ruta/donde/has/descomprimido/Drupal-Project
+    ```
 
-## Changelog
+3. **Instala las dependencias**
+    ```bash
+    composer install
+    ```
 
-Drupal keeps detailed [change records][changelog]. You can search Drupal's
-changes for a record of every notable breaking change and new feature since
-2011.
+4. **Configura la base de datos**
+- Importa la base de datos que se encuentra dentro del repositorio llamado drupal_prueba.sql
 
-## Security
+5. **Configura Drupal**
 
-For a list of security announcements, see the [Security advisories
-page][Security advisories] (available as [an RSS feed][security RSS]). This
-page also describes how to subscribe to these announcements via email.
+- Copia el archivo default.settings.php a settings.php y ajusta la configuración de la base de datos:
+ ```php
+ $databases['default']['default'] = array (
+  'driver' => 'mysql',
+  'database' => 'drupal_prueba',
+  'username' => 'root',
+  'password' => '',
+  'host' => 'localhost',
+  'port' => '',
+  'prefix' => '',
+);
+```
 
-For information about the Drupal security process, or to find out how to report
-a potential security issue to the Drupal security team, see the [Security team
-page][security team].
+6. **Si estás usando XAMPP, asegúrate de que Apache y MySQL estén en funcionamiento.**
 
-## Need a helping hand?
+## USO
 
-Visit the [Support page][support] or browse [over a thousand Drupal
-providers][service providers] offering design, strategy, development, and
-hosting services.
+1. **Accede al proyecto en tu navegador**
 
-## Legal matters
+    Abre tu navegador y visita la URL:
+    ```bash
+    http://localhost/Drupal-Project/
+    ```
+2. **Navega a la página de búsqueda de usuarios**
 
-Know your rights when using Drupal by reading Drupal core's
-[license](/core/LICENSE.txt).
+    La página de búsqueda de usuarios estará disponible en: 
+    ```bash
+    http://localhost/tu-repositorio/user-list
+    ```
+    Aquí podrás utilizar el formulario para buscar usuarios y ver los resultados en una tabla. La búsqueda se realiza utilizando AJAX, por lo que los resultados se actualizarán dinámicamente sin recargar la página.
 
-Learn about the [Drupal trademark and logo policy here][trademark].
+3. **Inicia sesión en el sistema**
 
-[Drupal.org]: https://www.drupal.org
-[Drupal community]: https://www.drupal.org/community
-[GitLab repository]: https://git.drupalcode.org/project/drupal
-[issue queue]: https://www.drupal.org/project/issues/drupal
-[issue forks]: https://www.drupal.org/drupalorg/docs/gitlab-integration/issue-forks-merge-requests
-[documentation]: https://www.drupal.org/documentation
-[changelog]: https://www.drupal.org/list-changes/drupal
-[modules]: https://www.drupal.org/project/project_module
-[security advisories]: https://www.drupal.org/security
-[security RSS]: https://www.drupal.org/security/rss.xml
-[security team]: https://www.drupal.org/drupal-security-team
-[service providers]: https://www.drupal.org/drupal-services
-[support]: https://www.drupal.org/support
-[trademark]: https://www.drupal.com/trademark
+    Para probar las funcionalidades administrativas, inicia sesión con las siguientes credenciales:
+
+    - Nombre de usuario: dev.vanessa.rubio
+    - Contraseña: PruebaTecnica1
+
+¡Gracias por revisar el proyecto!
+
+
