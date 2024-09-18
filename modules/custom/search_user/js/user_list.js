@@ -2,11 +2,9 @@
   Drupal.behaviors.userList = {
     attach: function (context, settings) {
       // Gestiona el formulario de búsqueda
-      $('#user-search-form', context).submit(function (e) {
+      $("#user-search-form", context).submit(function (e) {
         e.preventDefault();
         const formData = $(this).serialize();
-        console.log('Datos del formulario:', formData); // Para depuración
-
         // Almacena los filtros en una variable global
         window.userFilters = formData;
 
@@ -14,27 +12,31 @@
       });
 
       // Controla el botón de paginación anterior
-      $('#prev-page', context).click(function () {
-        let currentPage = parseInt($('#current-page').text().replace('Página ', ''));
+      $("#prev-page", context).click(function () {
+        let currentPage = parseInt(
+          $("#current-page").text().replace("Página ", "")
+        );
         if (currentPage > 1) {
           loadPage(currentPage - 1); // Carga la página anterior si no es la primera
         }
       });
 
       // Controla el botón de paginación siguiente
-      $('#next-page', context).click(function () {
-        let currentPage = parseInt($('#current-page').text().replace('Página ', ''));
+      $("#next-page", context).click(function () {
+        let currentPage = parseInt(
+          $("#current-page").text().replace("Página ", "")
+        );
         loadPage(currentPage + 1); // Carga la siguiente página
       });
 
       function loadPage(page) {
-        const queryString = $.param({ page: page }) + '&' + (window.userFilters || '');
-        console.log('Cadena de consulta para la página', page, ':', queryString); // Para depuración
+        const queryString =
+          $.param({ page: page }) + "&" + (window.userFilters || "");
 
-        $.get('/prueba_drupal/user-list/ajax?' + queryString, function (data) {
-          console.log('Datos recibidos para la página', page, ':', data); // Para depuración
-
-          if (data.usuarios && Array.isArray(data.usuarios)) {
+        $.get("/prueba_drupal/user-list/ajax?" + queryString, function (data) {
+          if (data.usuarios.length == 0) {
+            $("#user-list").html("<p>No se encontraron resultados.</p>"); // Mensaje cuando no hay usuarios
+          } else if (data.usuarios && Array.isArray(data.usuarios)) {
             // Crea la tabla con los datos de los usuarios
             let html = `
               <table>
@@ -61,17 +63,16 @@
               `;
             });
 
-            html += '</tbody></table>';
-            $('#user-list').html(html); // Muestra la tabla en el contenedor
-            $('#current-page').text('Página ' + page); // Actualiza el número de página
-          } else {
-            $('#user-list').html('<p>No se encontraron resultados.</p>'); // Mensaje cuando no hay usuarios
+            html += "</tbody></table>";
+            $("#user-list").html(html); // Muestra la tabla en el contenedor
+            $("#current-page").text("Página " + page); // Actualiza el número de página
           }
+
         }).fail(function (jqXHR, textStatus, errorThrown) {
-          console.error('Error en la solicitud AJAX:', textStatus, errorThrown); // Muestra errores en la consola
-          $('#user-list').html('<p>Error al cargar los datos.</p>'); // Mensaje de error
+          console.error("Error en la solicitud AJAX:", textStatus, errorThrown); // Muestra errores en la consola
+          $("#user-list").html("<p>Error al cargar los datos.</p>"); // Mensaje de error
         });
       }
-    }
+    },
   };
 })(jQuery, Drupal);
